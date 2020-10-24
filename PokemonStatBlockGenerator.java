@@ -783,7 +783,7 @@ public class PokemonStatBlockGenerator {
       }
       System.out.println("Suggested damage per round: " + damage);
       System.out.println("Suggested DC for abilities: " + difficultyClass);
-      
+      System.out.pirntln("Have a nice day");
       
    }
 }
