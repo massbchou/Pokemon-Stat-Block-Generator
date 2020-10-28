@@ -135,13 +135,13 @@ public class PokemonStatBlockGenerator {
    }
    
    //Calculates and Sets Intelligence
-   Int = (spa / 7);
+   Int = (spa / 6.5);
    if (Int < 8){ //Min 8
    Int = 8;
    }
    
    //Calculates and Sets Wisdom
-   Wis = (spd / 7);
+   Wis = (spd / 6.5);
    
    //Calculates and sets Charisma
    Cha = (Wis + Int) / 2;
@@ -783,7 +783,7 @@ public class PokemonStatBlockGenerator {
       }
       System.out.println("Suggested damage per round: " + damage);
       System.out.println("Suggested DC for abilities: " + difficultyClass);
-      System.out.pirntln("Have a nice day");
+      System.out.println("Have a nice day");
       
    }
 }
