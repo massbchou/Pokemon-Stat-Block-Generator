@@ -119,6 +119,10 @@ public class PokemonStatBlockGenerator {
    
    //Calculates and Sets Constitution
    Con = (hp / 6) + 2;
+   if (hp >= 120) {
+     Con = (hp / (6 + ((hp - 120)/40))) + 2; //Scales slower as hp increases over 120. 
+   
+   }
    if (Con >= 17) {
    Con -= 2;
    }
@@ -243,7 +247,7 @@ public class PokemonStatBlockGenerator {
    numHitDice = hp/4.0;
    }
    else{
-   numHitDice = hp/3.0;
+   numHitDice = hp/3;
    }
    if (numHitDice < (2*cr)){
    numHitDice = 2*cr;
@@ -276,11 +280,17 @@ public class PokemonStatBlockGenerator {
       System.out.println("Magical Resistance");
    }
    if (cr > 13) {
-      double numActions = ((cr - 13) / 2) + 1;
+      double numActions = ((cr - 14) / 2) + 1;
+      if (cr > 18) {
+        numActions += Math.floor((cr - 18) / (3 + (0.25 * (cr - 18))));//Scales slower after three actions
+      }
       System.out.println(Math.ceil(numActions) + " Legendary Actions");
    }
    if (spd > 80) {
       double numRes = (spd - 80) / 10;
+      if (spd > 110) {
+        numRes += Math.floor((spd - 110) / (10 + (0.3 * (spd - 110))));//Scales slower after three resistances
+      }
       System.out.println(Math.floor(numRes) + " uses of Legendary Resistance");
    }
    if (spe > 99) {
